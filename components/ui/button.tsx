@@ -14,7 +14,7 @@ const baseStyles =
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-gradient-to-r from-[#884BFF] via-[#AA6AF7] to-[#4DE1D3] text-white shadow-[0_15px_45px_rgba(136,75,255,0.35)] focus-visible:outline-[#884BFF]",
+    "bg-gradient-to-r from-[#884BFF] via-[#AA6AF7] to-[#4DE1D3] text-white shadow-[0_15px_45px_rgba(136,75,255,0.35)] focus-visible:outline-[#884BFF] button-glow-animate",
   ghost:
     "bg-transparent text-white/80 hover:text-white border border-white/10 backdrop-blur focus-visible:outline-white/40",
   soft:
