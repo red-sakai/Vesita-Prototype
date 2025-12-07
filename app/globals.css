@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-page: #05060b;
+  --color-page-elevated: #0c111d;
+  --color-card: rgba(14, 21, 33, 0.85);
+  --color-border: rgba(117, 131, 193, 0.35);
+  --color-foreground: #f3f5ff;
+  --color-muted: #9da6c4;
+  --color-primary: #8c5bff;
+  --color-primary-strong: #b18dff;
+  --color-accent: #4de1d3;
+  --shadow-soft: 0 25px 80px rgba(10, 15, 38, 0.5);
+  --radius-xl: 32px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-page);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --font-sans: var(--font-vesita-sans);
+  --font-mono: var(--font-vesita-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at 10% 20%, #0e1223, transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(140, 91, 255, 0.45), transparent 40%),
+    linear-gradient(120deg, #04050b 0%, #070b15 45%, #0b101d 100%);
+  color: var(--color-foreground);
+  font-family: var(--font-vesita-sans), "Space Grotesk", "Euclid Circular A",
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  background-attachment: fixed;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 140px 140px;
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(77, 225, 211, 0.4);
+  color: var(--color-foreground);
+}
+
+.page-shell {
+  width: min(1280px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 4rem 0 6rem;
+}
+
+.glass-panel {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }

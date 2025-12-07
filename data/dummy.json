@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": "usr_admin_001",
+      "name": "Jhered Republica",
+      "email": "jhered@vesita.app",
+      "password": "password1",
+      "role": "ADMIN"
+    },
+    {
+      "id": "usr_org_002",
+      "name": "Ezekiel Bustamante",
+      "email": "ezekiel@vesita.app",
+      "password": "password1",
+      "role": "ORGANIZER"
+    },
+    {
+      "id": "usr_att_003",
+      "name": "Carl Blancaflor",
+      "email": "carl@vesita.app",
+      "password": "password1",
+      "role": "ATTENDEE"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_icpep_001",
+      "title": "ICPEP SE - PUP Manila's Onboarding",
+      "startTime": "2026-01-12T09:00:00Z",
+      "location": "PUP Manila, Engineering Theater",
+      "capacity": 200,
+      "published": true,
+      "organizerId": "usr_org_002",
+      "description": "Kick off the semester with the ICPEP SE community. Meet mentors, explore project tracks, and get matched with squads for the upcoming build cycle.",
+      "attendees": [
+        {
+          "userId": "usr_att_003",
+          "status": "REGISTERED",
+          "ticketCode": "ICPEP-1201"
+        }
+      ]
+    },
+    {
+      "id": "evt_cisco_002",
+      "title": "Cisco NetConnect PUP - Manila's Party",
+      "startTime": "2026-02-05T18:30:00Z",
+      "location": "Cisco Innovation Hub, Manila",
+      "capacity": 150,
+      "published": true,
+      "organizerId": "usr_org_002",
+      "description": "Celebrate network pros across campus with a night of demos, live mixes, and lightning talks powered by Cisco NetConnect.",
+      "attendees": []
+    }
+  ]
+}
