@@ -1,8 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/lib/auth-context";
 
 export type DemoUser = {
   id: string;
@@ -23,25 +23,13 @@ type StatusState = {
 
 export function SignInForm({ users }: SignInFormProps) {
   const [status, setStatus] = useState<StatusState | null>(null);
-  const router = useRouter();
-
-  function getRedirectPath(user: DemoUser) {
-    const query = `?user=${encodeURIComponent(user.id)}&role=${encodeURIComponent(user.role.toLowerCase())}`;
-
-    switch (user.role) {
-      case "ORGANIZER":
-        return `/events${query}`;
-      case "ATTENDEE":
-        return `/events${query}`;
-      case "ADMIN":
-        return `/events${query}`;
-      default:
-        return `/events${query}`;
-    }
-  }
+  const [isLoading, setIsLoading] = useState(false);
+  const { signIn } = useAuth();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsLoading(true);
+    
     const formData = new FormData(event.currentTarget);
     const email = String(formData.get("email") || "").trim().toLowerCase();
     const password = String(formData.get("password") || "").trim();
@@ -53,15 +41,19 @@ export function SignInForm({ users }: SignInFormProps) {
     if (match) {
       setStatus({
         type: "success",
-        message: `Welcome back, ${match.name}. Role: ${match.role}.`,
+        message: `Welcome back, ${match.name}. Redirecting...`,
       });
-      const destination = getRedirectPath(match);
-      router.push(destination);
+      
+      // Use the auth context sign in method
+      setTimeout(() => {
+        signIn(match);
+      }, 500);
     } else {
       setStatus({
         type: "error",
         message: "No account matched these credentials. Try one of the demo users below.",
       });
+      setIsLoading(false);
     }
   }
 
@@ -98,17 +90,17 @@ export function SignInForm({ users }: SignInFormProps) {
       </div>
       {status && (
         <div
-          className={`rounded-2xl border px-4 py-3 text-sm ${
+          className={`rounded-2xl border px-4 py-3 text-sm transition-all ${
             status.type === "success"
-              ? "border-emerald-400/40 text-emerald-200"
-              : "border-rose-400/40 text-rose-200"
+              ? "border-emerald-400/40 bg-emerald-500/10 text-emerald-200"
+              : "border-rose-400/40 bg-rose-500/10 text-rose-200"
           }`}
         >
           {status.message}
         </div>
       )}
-      <Button type="submit" className="w-full py-3 text-base">
-        Continue
+      <Button type="submit" disabled={isLoading} className="w-full py-3 text-base">
+        {isLoading ? "Signing in..." : "Continue"}
       </Button>
     </form>
   );
