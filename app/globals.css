@@ -222,3 +222,76 @@ textarea:focus-visible {
     transform: translateX(100%);
   }
 }
+
+/* Enhanced Button Glow Effect */
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 15px 45px rgba(136, 75, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 20px 60px rgba(136, 75, 255, 0.6), 0 0 30px rgba(77, 225, 211, 0.3);
+  }
+}
+
+.button-glow-animate:hover {
+  animation: button-glow 2s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+/* Gradient Text Utility */
+.text-gradient {
+  background: linear-gradient(135deg, #8c5bff 0%, #4de1d3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Feature Card Color Accents */
+.feature-card-purple {
+  border-color: rgba(140, 91, 255, 0.3);
+}
+
+.feature-card-purple:hover {
+  border-color: rgba(140, 91, 255, 0.6);
+  background: linear-gradient(135deg, rgba(140, 91, 255, 0.08), rgba(140, 91, 255, 0.02));
+  box-shadow: 0 25px 80px rgba(140, 91, 255, 0.2);
+}
+
+.feature-card-cyan {
+  border-color: rgba(77, 225, 211, 0.3);
+}
+
+.feature-card-cyan:hover {
+  border-color: rgba(77, 225, 211, 0.6);
+  background: linear-gradient(135deg, rgba(77, 225, 211, 0.08), rgba(77, 225, 211, 0.02));
+  box-shadow: 0 25px 80px rgba(77, 225, 211, 0.2);
+}
+
+.feature-card-primary {
+  border-color: rgba(177, 141, 255, 0.3);
+}
+
+.feature-card-primary:hover {
+  border-color: rgba(177, 141, 255, 0.6);
+  background: linear-gradient(135deg, rgba(177, 141, 255, 0.08), rgba(177, 141, 255, 0.02));
+  box-shadow: 0 25px 80px rgba(177, 141, 255, 0.2);
+}
+
+/* Card Lift Effect */
+.card-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Hero Mockup Float Animation */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float-gentle 6s ease-in-out infinite;
+}
