@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
-import { NavigationBar } from "@/components/navigation";
-import { SiteFooter } from "@/components/footer";
+import { AuthProvider } from "@/lib/auth-context";
+import { LayoutWrapper } from "@/components/layout-wrapper";
 import "./globals.css";
 
 const vesitaSans = Space_Grotesk({
@@ -38,9 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${vesitaSans.variable} ${vesitaMono.variable} antialiased`}>
-        <NavigationBar />
-        <main>{children}</main>
-        <SiteFooter />
+        <AuthProvider>
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </AuthProvider>
       </body>
     </html>
   );
