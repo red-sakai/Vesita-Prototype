@@ -1,7 +1,7 @@
-import { AttendeeTickets } from "@/components/attendee/attendee-tickets";
+import { AttendeeTickets } from "@/components/sections/attendee/attendee-tickets";
 import dummyData from "@/data/dummy.json";
 import type { DemoUser } from "@/components/sign-in-form";
-import type { DemoEvent } from "@/components/events/events-board";
+import type { DemoEvent } from "@/components/sections/events/events-board";
 
 export default function AttendeeTicketsPage() {
   const users = dummyData.users as DemoUser[];
