@@ -12,7 +12,7 @@ const navLinks = [
 
 export function NavigationBar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#05060b]/80 backdrop-blur-3xl">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#05060b]/50 backdrop-blur-3xl">
       <div className="mx-auto flex w-[min(1280px,100%-3rem)] items-center justify-between py-4">
         <Logo />
         <nav aria-label="Primary" className="hidden items-center gap-2 md:flex">
