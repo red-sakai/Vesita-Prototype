@@ -1,6 +1,6 @@
 import dummyData from "@/data/dummy.json";
 import type { DemoUser } from "@/components/sign-in-form";
-import { AdminUsersClient } from "@/components/admin/admin-users-client";
+import { AdminUsersClient } from "@/components/sections/admin/admin-users-client";
 
 export default function AdminUsersPage() {
   const users = dummyData.users as DemoUser[];
