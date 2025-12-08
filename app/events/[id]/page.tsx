@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import dummyData from "@/data/dummy.json";
-import type { DemoEvent } from "@/components/events/events-board";
+import type { DemoEvent } from "@/components/sections/events/events-board";
 import type { DemoUser } from "@/components/sign-in-form";
-import { EventDetailClient } from "@/components/events/event-detail-client";
+import { EventDetailClient } from "@/components/sections/events/event-detail-client";
 
 type EventDetailPageProps = {
   params: Promise<{ id: string }>;
