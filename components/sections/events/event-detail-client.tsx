@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useAuth } from "@/lib/auth-context";
-import type { DemoEvent } from "@/components/events/events-board";
+import type { DemoEvent } from "@/components/sections/events/events-board";
 import type { DemoUser } from "@/components/sign-in-form";
-import { EventDetail } from "@/components/events/event-detail";
+import { EventDetail } from "@/components/sections/events/event-detail";
 
 type EventDetailClientProps = {
   event: DemoEvent;
@@ -26,7 +27,12 @@ export function EventDetailClient({ event, users }: EventDetailClientProps) {
   }
 
   return (
-    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
+    <motion.div
+      className="space-y-6"
+      initial={{ opacity: 0, y: 32 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
       <Link
         href={backHref}
         className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-all hover:gap-3"
@@ -34,7 +40,7 @@ export function EventDetailClient({ event, users }: EventDetailClientProps) {
         <span className="h-8 w-8 rounded-full border border-white/20 flex items-center justify-center transition-all">←</span>
         Back to events
       </Link>
-      <EventDetail event={event} users={users} viewer={user} />
-    </div>
+      <EventDetail event={event} users={users} viewer={user ?? undefined} />
+    </motion.div>
   );
 }

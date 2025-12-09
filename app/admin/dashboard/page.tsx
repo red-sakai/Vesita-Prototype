@@ -1,7 +1,7 @@
-import { AdminDashboard } from "@/components/admin/admin-dashboard";
+import { AdminDashboard } from "@/components/sections/admin/admin-dashboard";
 import dummyData from "@/data/dummy.json";
 import type { DemoUser } from "@/components/sign-in-form";
-import type { DemoEvent } from "@/components/events/events-board";
+import type { DemoEvent } from "@/components/sections/events/events-board";
 
 export default function AdminDashboardPage() {
   const users = dummyData.users as DemoUser[];

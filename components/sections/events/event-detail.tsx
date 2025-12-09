@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import type { DemoEvent } from "@/components/events/events-board";
+import type { DemoEvent } from "@/components/sections/events/events-board";
 import type { DemoUser } from "@/components/sign-in-form";
 
 export type RSVPRecord = {

@@ -1,7 +1,7 @@
 import dummyData from "@/data/dummy.json";
 import type { DemoUser } from "@/components/sign-in-form";
-import type { DemoEvent } from "@/components/events/events-board";
-import { EventsPageClient } from "@/components/events/events-page-client";
+import type { DemoEvent } from "@/components/sections/events/events-board";
+import { EventsPageClient } from "@/components/sections/events/events-page-client";
 
 export default function EventsPage() {
   const users = dummyData.users as DemoUser[];

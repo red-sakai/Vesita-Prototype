@@ -1,7 +1,7 @@
 "use client";
 
 import { useAuth } from "@/lib/auth-context";
-import { EventsBoard, type DemoEvent } from "@/components/events/events-board";
+import { EventsBoard, type DemoEvent } from "@/components/sections/events/events-board";
 import type { DemoUser } from "@/components/sign-in-form";
 import { Button } from "@/components/ui/button";
 

@@ -1,7 +1,7 @@
-import { OrganizerDashboard } from "@/components/organizer/organizer-dashboard";
+import { OrganizerDashboard } from "@/components/sections/organizer/organizer-dashboard";
 import dummyData from "@/data/dummy.json";
 import type { DemoUser } from "@/components/sign-in-form";
-import type { DemoEvent } from "@/components/events/events-board";
+import type { DemoEvent } from "@/components/sections/events/events-board";
 
 export default function OrganizerDashboardPage() {
   const users = dummyData.users as DemoUser[];
